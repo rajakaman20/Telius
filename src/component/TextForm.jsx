@@ -10,6 +10,11 @@ const TextForm = (props) => {
     setText(text);
     
   };
+  const HandleonUPClick = () => {
+    let text = Text.toLocaleLowerCase();
+    setText(text);
+    
+  };
   const [Text, setText] = useState("");
   return (
     <div className="form-group">
@@ -20,10 +25,17 @@ const TextForm = (props) => {
         onChange={HandleonChange}
         className="form-control"
         id="exampleFormControlTextarea1"
-        rows="10"
+        rows="13"
       ></textarea>
-      <div className="btn btn-primary my-2" onClick={HandleonClick}>
+      <div className="btn btn-primary mx-1 my-2" onClick={HandleonClick}>
         ConvertToUpperCase
+      </div>
+      <div className="btn btn-primary mx-1 my-2" onClick={HandleonUPClick}>
+        ConvertToLowerCase
+      </div>
+    <div className="container my-2">
+         <h2>This Is Your Text Summary</h2>
+          <h3>{Text.split(" ").length} Words and {Text.length} Characters</h3>
       </div>
     </div>
   );
