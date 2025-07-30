@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+
 const TextForm = (props) => {
   const HandleonChange = (event) => {
     console.log("onchange is clicked");
@@ -8,10 +9,13 @@ const TextForm = (props) => {
   const HandleonClick = () => {
     let text = Text.toUpperCase();
     setText(text);
+   props.showAlert("Converted to UpperCase","success");
   };
   const HandleonUPClick = () => {
     let text = Text.toLocaleLowerCase();
     setText(text);
+    props.showAlert("Converted to LowerCase","success");
+    
   };
   const [Text, setText] = useState("");
   return (
