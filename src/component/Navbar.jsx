@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
@@ -6,9 +7,9 @@ const Navbar = (props) => {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <NavLink className="navbar-brand" to="/">
           {props.name}
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,14 +24,14 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <NavLink className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <NavLink className="nav-link active" aria-current="page" to="/about">
                 About
-              </a>
+              </NavLink>
             </li>
           </ul>
           {/* <form className="d-flex" role="search">

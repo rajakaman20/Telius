@@ -1,9 +1,11 @@
 import Alert from "./component/Alert";
 import "./App.css";
-// import About from "./component/About";
+import About from "./component/About";
 import Navbar from "./component/Navbar";
 import TextForm from "./component/TextForm";
 import { useState } from "react";
+import React from "react";
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 
 function App() {
   const [Mode, setMode] = useState("light");
@@ -36,8 +38,21 @@ function App() {
       <Navbar name="Telius" mode={Mode} toggle={handle} />
       <Alert alert={alert} />
       <div className="container my-3">
-        <TextForm heading=" Enter your Text Here To Analyze" mode={Mode} alert={alert} showAlert={showAlert}   />
-        {/* <About/>    */}
+        <Routes>
+          <Route exact path="/about" element={<About />} />
+
+          <Route
+           exact path="/"
+            element={
+              <TextForm
+                heading=" Enter your Text Here To Analyze"
+                mode={Mode}
+                alert={alert}
+                showAlert={showAlert}
+              />
+            }
+          />
+        </Routes>
       </div>
     </>
   );
